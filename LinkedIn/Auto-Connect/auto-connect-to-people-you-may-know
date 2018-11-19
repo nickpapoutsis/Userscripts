@@ -1,12 +1,10 @@
 // ==UserScript==
 // @name        One-click add All LinkedIn People
 // @namespace   nickpapoutsis
-// @description One-click add all LinkedIn "People you may know"
-// @include     https://www.linkedin.com/people/pymk*
-// @include     https://www.linkedin.com/vsearch*
+// @description One-click add all LinkedIn "Recommended for you" people in the My Network page
 // @include     https://www.linkedin.com/mynetwork/*
 // @include     https://www.linkedin.com/mynetwork*
-// @version     0.4
+// @version     0.5
 // @grant       none
 // @icon        data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAA3NCSVQICAjb4U/gAAAACXBIWXMAAAsSAAALEgHS3X78AAAAFXRFWHRDcmVhdGlvbiBUaW1lADYvMjQvMDn2wWvjAAAAHHRFWHRTb2Z0d2FyZQBBZG9iZSBGaXJld29ya3MgQ1M0BrLToAAAAY9QTFRFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWJ+8Upq2DFJ4BklsVJu4CU1zCU5zTpWyV5+7DlN4B0twB0tvCU50C1mEC1+NDFF3DGWWDmSRD2iYEFV5EmuaE1d7FGeTFVp9FWGKFW2cGFyAGHCeGmCDG3OgHWKFHnWiIGSHIXikI2iLJHumJmuNKG6PKH2oK3CSK4CrLnSVLoOtL2iDMHaXMYavM3maNHOQNIixNXaUNnycN4uzOX6eOX+fOo21O3SLPIKiPY2yPY2zPZC3PoqtP4WkP42xQJO5QoinQ5W7RYuqRpi9SIOfSI+sSZu/S5KvS5OwTJ3BTpe6T6DDUYGXUpq2UqPFVZy5VabHV566WKjJWafHW4eaW6vLXaHAYa7NYqC+Yq3MY6LBZ6K9aq7Kbq3Hc7LMdJindbjTgbTLhL/VicDXi6u5j8TZornErL7GuMbNxdDVy9ng1dzg19fX2tra3Nzc3ODh3t7e5ubm6Ojo6urq7e3t7+/v8fHx9PT09vb2+fn5+/v7/f39/////8EcrgAAABN0Uk5TAAEFBgcSFxiGh4+a1Nra4+Pm6f7wNSIAAAFdSURBVDjLrZM7T8NAEIS/tTfOA0hogIqHgJKWv4BA8HNB/AsaKjoEgoKHCDKKbdZ3RxEHUHKWKJhmdJrRzu7enQC93gkxXJYlCCyfjjpJRPf2fvGB0D9b84WPGJJ+8nxeKNlqUUUTnHVXsyLleDAJIRRPuaZhDnW2fqNM62/sk78tFCk8iisBhjB8WUxxKN4DCBDp1KM4B5CPeHeRRlEsA7iLDoKhOA/wBKxjb9Dv5TVkK+mswtRwBFyxfQj5+KAPk4fXrDHU9azJGhPobAEs7ZUFUJPgzcxMRMTsVkQGIiIiumtm9jOFAG5Kk1t2BtBxTYSfN4wfGS7BwDV7WDBcw93W9IhHCfMGB+OGCfOrnm18xv5PhkjEN/t/iXDpz+X/JjzgEDYz2vF5r3hLW3XnUSYjazVojlIVibTowSpUSs1Eol8vhKoUSVLpdOMlQmXBKTRvqgUiItKqhhC+ALfVx6MKijHaAAAAAElFTkSuQmCC
 // ==/UserScript==
@@ -16,7 +14,6 @@
 
 var zNode = document.createElement('div');
 zNode.innerHTML = '<button id="myButton" type="button">Connect!</button>';
-zNode.setAttribute('id', 'myContainer');
 zNode.style.display = "inline-block";
 zNode.style.background = "lightgreen";
 document.getElementById("app-launcher-nav-item").append(zNode);
@@ -25,12 +22,12 @@ document.getElementById('myButton').addEventListener('click', ButtonClickAction,
 
 function ButtonClickAction(zEvent) {
     if (document.getElementsByClassName("mn-person-card__person-btn-ext button-secondary-medium").length > 10) {
-        x = document.getElementsByClassName("mn-person-card__person-btn-ext button-secondary-medium");
+        var x = document.getElementsByClassName("mn-person-card__person-btn-ext button-secondary-medium");
         for (var i = 3; i < x.length; i++) {
             x[i].click();
         } }
     else {
-        x = document.getElementsByClassName("button-secondary-small");
+        x = document.getElementsByClassName("js-mn-discovery-person-card__action-btn");
         for (var j = 0; j < x.length; j++) {
             x[j].click();
         }
