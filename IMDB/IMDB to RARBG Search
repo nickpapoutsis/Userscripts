@@ -1,0 +1,56 @@
+// ==UserScript==
+// @name        IMDB to RARBG Search
+// @namespace   nickpapoutsis
+// @description When on IMDB click this small button to search for the movie/series on RARBG
+// @include     https://www.imdb.com/*
+// @version     0.1
+// @grant       none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
+    getMovieId()
+
+    if (movieId) {
+
+        var div = document.createElement('div');
+        div.innerHTML = '<a id="rarbgSearchButton">RARBG</a>';
+
+        div.style.display = "inline-block";
+        div.style.position = "fixed";
+        div.style.left = "1%";
+        div.style.top = "3%";
+        div.style.zIndex = '999'
+
+        document.body.append(div);
+
+        var icon = document.getElementById('rarbgSearchButton')
+
+        icon.style.background = 'white'
+        icon.style.color = 'blue'
+        icon.style.fontWeight = '800'
+        icon.style.padding = '5px'
+        icon.style.border = 'solid 2px black'
+        icon.style.borderRadius = '7px'
+        icon.style.textDecoration = 'none'
+        icon.style.fontSize = '0.8em'
+
+        icon.href = 'https://rarbg.to/torrents.php?search=' + movieId
+        icon.target = '_blank'
+    }
+
+    var movieId;
+
+    function getMovieId() {
+        var x = window.location.pathname;
+        var arr = x.split('/');
+
+        for (var i = 0; i < arr.length; i++){
+            if (arr[i].substring(0,2) === 'tt' || arr[i].substring(0,2) === 'TT') {
+                movieId = arr[i];
+            }
+        }
+    }
+
+})();
