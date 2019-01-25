@@ -1,6 +1,6 @@
 // ==UserScript==
-// @name             IMDB to RARBG Search
-// @description      When on IMDB click this small button to search for the movie/series on RARBG
+// @name             IMDB to RARBG Torrent Search
+// @description      When on IMDB click this small button to search for the movie/series torrent/magnet links on RARBG
 // @namespace        nickpapoutsis
 // @author           nickpapoutsis
 // @copyright        2019, nickpapoutsis (https://openuserjs.org/users/nickpapoutsis)
