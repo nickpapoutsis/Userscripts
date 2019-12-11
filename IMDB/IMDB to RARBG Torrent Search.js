@@ -25,8 +25,8 @@
         div.style.display = "inline-block";
         div.style.position = "fixed";
         div.style.left = "1%";
-        div.style.top = "3%";
-        div.style.zIndex = '999';
+        div.style.top = "8%";
+        div.style.zIndex = '9999';
 
         document.body.append(div);
 
