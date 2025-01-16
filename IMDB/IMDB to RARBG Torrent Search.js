@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name             IMDB to RARBG Torrent Search
-// @description      When on IMDB, click the small buttons to search for the movie/series on TorrentGalaxy, 1337x or RARBG Index.
+// @description      When on IMDB, click the small buttons to search for the movie/series on TorrentGalaxy, 1337x or RARBG Dump.
 // @namespace        nickpapoutsis
 // @author           nickpapoutsis
 // @copyright        2025, nickpapoutsis (https://openuserjs.org/users/nickpapoutsis)
